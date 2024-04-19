@@ -4,3 +4,7 @@ These are two short, automated scripts for collecting and aggregating all of FIN
 The Automated FINRA data downloader takes a while to run, so a machine with good specs is preferred. Run the data downloader first and then run the data aggregator.
 
 This project was made in collaboration with Dr. Jenny Zha Giedt of the George Washington School of Business.
+
+## Bug fix 4/19/24
+
+Short-exempt-volume was no longer available through the script, so I removed it. When I tried to investigate the links that I was feeding to the script, I was unable to find anything. I suspect that the Short-exempt-volume data was simply removed by FINRA through that link, so I removed it from the script and now the script should work.
