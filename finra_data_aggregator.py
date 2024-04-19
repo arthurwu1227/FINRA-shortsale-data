@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 #estalish where the FINRA data is, list all files below FiNRAdata
-folder = '/Users/arthurwu/Desktop/drgiedt_internship/FINRAdata'
+folder = '/Users/arthurwu/Desktop/FINRAdata'
 files = os.listdir(folder)
 
 #initialize the list where we will store our dataframes
@@ -22,7 +22,7 @@ for file in files:
 	try:
 		df = pd.read_csv(path, sep='|')
 		print(len(storage))
-		print(path)
+		print(df)
 		storage.append(df)
 	except:
 		print("")
@@ -41,7 +41,7 @@ print(errors)
 finaldf = pd.concat(storage)
 print('concatenation done')
 finaldf = finaldf.groupby(['Date', 'Symbol']).agg({'ShortVolume':['sum'], 
-	'ShortExemptVolume':['sum'], 'TotalVolume':['sum']}).reset_index()
+	'TotalVolume':['sum']}).reset_index()
 print('groupby done')
 
 #output to file "aggregated_data.csv"
